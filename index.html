@@ -1,62 +1,243 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Goodness | Portfolio</title>
-  <link rel="stylesheet" href="main.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet"> 
-</head>
-<body>
-  <header>
-    <h1>Goodness David Ireogbu</h1>
-    <p>Front-end Developer</p>
-  </header>
+/*===== All styling =====*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-  <main>
-    <!-- Hero Section -->
-    <div class="hero-content">
-      <div class="image">
-        <img data-testid="slackProfilePicture" src="Profile-image.png" width="512px" height="512px" alt="">
-      </div>
-      <div class="info">
-        <h2 data-testid="slackDisplayName">Ireogbu_GD</h2>
-        <p data-testid="slackEmail" id="email">davidgoodness9884@gmail.com</p>
-        <p>Current time(UTC): <span id="current-time" data-testid="currentTimeUTC"></span></p>
-        <p>Current Day: <span id="current-day" data-testid="currentDay"></span></p>
-      </div>
-    </div>
+body {
+  background-color: #F9F9F9;
+  color: #111;
+  font-family: "Outfit", sans-serif;
+}
 
-    <!-- Goals Section -->
-    <section>
-      <div class="goals">
-        <h2>My goals for the next 2 years</h2>
-        <ul>
-          <li>Develop expertise in modern front-end frameworks and libraries such as React and Next.js</li>
-          <li>Build a portfolio showcasing innovative and responsive web designs</li>
-          <li>Secure a front-end developer position at a leading tech company</li>
-          <li>Contribute to impactful open-source projects to enhance industry collaboration</li>
-          <li>Stay updated with the latest web development trends and best practices</li>
-          <li>Expand my skill set to include full stack development and cloud technologies</li>
-          <li>Obtain relevant certifications to validate my skills and knowledge</li>
-        </ul>
-      </div>
-    </section>
-  </main>
+section {
+  padding: 2.5rem 0;
+  background-color: #eee;
+}
 
-   <!-- Footer Section -->
-  <footer>
-    <div class="links">
-      <p>Recommended Sites:</p>
-      <div class="more-links">
-        <a data-testid="hngLink" href="http://hng.tech/learn">Learn more about HNG</a>
-        <a data-testid="keywordLink" href="http://keyword.dog/">Explore Keyword.dog</a>
-        <a data-testid="scrapeanywebLink" href="http://scrapeanyweb.site/">Scrape Any Web</a>
-      </div>
-    </div>
-  </footer>
+/*===== Header section =====*/
+header {
+  background-color: #DDA0DD;
+  padding: 1.5rem;
+}
 
-  <!-- JavaScript -->
-  <script src="script.js"></script>
-</body>
-</html>
+header h1 {
+  font-size: 2rem;
+  text-align: center;
+  color: #800080;
+  font-weight: 600;
+}
+
+header p {
+  font-size: 1.2rem;
+  text-align: center;
+  color: #800080;
+  font-weight: 400;
+}
+
+/*===== Hero section =====*/
+.hero-content {
+  padding: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-content .info {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  font-size: 1.2em;
+}
+
+.hero-content .image {
+  margin-top: 1.5rem;
+}
+
+.hero-content .info #email {
+  text-decoration: none;
+}
+
+.info h2 {
+  color: #800080;
+}
+
+/*===== Goal section =====*/
+.goals {
+  width: 50%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.goals h2 {
+  font-size: 1.5rem;
+  text-align: center;
+  color: #800080;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+}
+
+.goals ul {
+  list-style-type: none;
+  padding: 0;
+  counter-reset: item;
+  width: 100%; 
+}
+
+.goals ul li {
+  font-size: 1rem;
+  color: #333333;
+  padding: 0.5rem 0;
+  position: relative;
+  padding-left: 1.5rem;
+  counter-increment: item;
+}
+
+.goals ul li:before {
+  content: counter(item) ". ";
+  position: absolute;
+  left: 0;
+  color: #800080;
+  font-weight: 700;
+}
+
+/*===== Footer section =====*/
+footer {
+  background-color: #800080;
+  color: #ffffff;
+  padding: 1.5rem 0;
+  text-align: center;
+}
+
+footer a {
+  text-decoration: underline;
+  color: #DDA0DD;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+footer a:hover {
+  color: #FFFFFF;
+}
+
+footer .links p {
+  font-weight: 600;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+footer .social-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/*===== Media queries Small screens (mobile) =====*/
+@media screen and (max-width: 550px) {
+  header {
+    padding: 0.8rem;
+  }
+
+  header h1 {
+    font-size: 1.5rem;
+    font-weight: 500;
+  }
+
+  .hero-content {
+    gap: 2rem;
+  }
+
+  .hero-content .image {
+    width: 90%;
+    height: auto;
+    margin: 0 auto;
+  }
+
+  .hero-content .image img {
+    width: 100%;
+    height: auto;
+    border-radius: 100%;
+  }
+
+  .hero-content .info {
+    font-size: 0.9em;
+    max-inline-size: 90%;
+  }
+
+  .hero-content .info #email {
+    word-wrap: break-word;
+    text-decoration: none;
+  }
+
+  .goals {
+    width: 90%;
+  }
+
+  .goals h2 {
+    font-size: 1.2rem;
+  }
+
+  .goals ul li {
+    font-size: 0.9rem;
+  }
+
+  footer .social-links {
+    padding: 0 0.8rem;
+  }
+}
+
+/*===== Media queries Medium screens (tablet) =====*/
+@media screen and (min-width: 551px) and (max-width: 1200px) {
+  .hero-content {
+    gap: 4rem;
+  }
+
+  .hero-content .info {
+    font-size: 1em;
+  }
+
+  .goals {
+    width: 80%;
+  }
+
+  .goals h2 {
+    font-size: 1.3rem;
+  }
+
+  .goals ul li {
+    font-size: 1rem;
+  }
+
+  footer .links p {
+    font-size: 1rem;
+  }
+}
+
+/*===== Media queries Large screens (desktop) =====*/
+@media screen and (min-width: 1201px) {
+  .hero-content {
+    gap: 6rem;
+  }
+
+  .hero-content .info {
+    font-size: 1.2em;
+  }
+
+  .goals {
+    width: 70%;
+  }
+
+  .goals h2 {
+    font-size: 1.4rem;
+  }
+
+  .goals ul li {
+    font-size: 1.1rem;
+  }
+}
